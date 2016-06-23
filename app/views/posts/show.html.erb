@@ -1,0 +1,16 @@
+<%= link_to 'Comment', new_comment_path%>
+<div class="item">
+
+    <%= @post.title %><br>
+    <%= @post.user %> <br>
+    <%= @post.body %> <br>
+
+
+</div>
+
+<div class="comments">
+    <%= @post.comments.each do |comment| %>
+    <%= comment.user %><br>
+    <%= comment.body %>
+    <% end %>
+</div>

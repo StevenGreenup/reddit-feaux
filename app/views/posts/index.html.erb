@@ -1,0 +1,14 @@
+I am index
+
+<%= link_to 'New Post', new_post_path %>
+<div class="item">
+
+  <% @posts.each do |post| %>
+  <br>
+    <%= link_to post.title, post_path(id: post.id) %><br>
+    <%= post.user %> <br>
+    <%= post.body %> <br>
+    <br>
+<% end %>
+
+</div>
