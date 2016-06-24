@@ -7,9 +7,9 @@
 
 
 </div>
-
+<br>
 <div class="comments">
-    <%= @post.comments.each do |comment| %>
+    <% @post.comments.each do |comment| %>
     <%= comment.user %><br>
     <%= comment.body %>
     <% end %>

@@ -7,18 +7,21 @@ class CommentsController < ApplicationController
   def new
     @comment = Comment.new
     @comment.post_id = params[:post_id]
+
   end
 
   def create
     @comment = Comment.new
     @comment.user = params[:comment][:user]
     @comment.body = params[:comment][:body]
+    @comment.post_id = params[:comment][:post_id]
     if @comment.save
       redirect_to root_path
     else
       render :new
     end
   end
+
 
   def edit
   end
