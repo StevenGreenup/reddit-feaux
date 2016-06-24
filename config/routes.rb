@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   # get 'comments/show'=> '', as: :
   #
   get 'comments/new'=> 'comments#new', as: :new_comment
@@ -23,6 +25,11 @@ Rails.application.routes.draw do
   #
   # get 'posts/update'=> 'posts#update', as: :
 
+  get 'users/new' => 'users#new', as: :new_user
+
+  get 'users/:id' => 'users#show', as: :user
+
+  post 'users'=> 'users#create'
 
   # root 'artists#index'
 

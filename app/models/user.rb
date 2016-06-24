@@ -1,10 +1,8 @@
-class Post < ActiveRecord::Base
+class User < ActiveRecord::Base
   # auto linked to comments table
-  validates :user_id, presence: true
 
   has_many :comments
-  belongs_to :user
-
+  has_many :posts
   # def albums
   #   []
   # end

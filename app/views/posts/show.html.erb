@@ -2,7 +2,7 @@
 <div class="item">
 
     <%= @post.title %><br>
-    <%= @post.user %> <br>
+    <%= @post.user.username %> <br>
     <%= @post.body %> <br>
 
 
@@ -10,7 +10,7 @@
 <br>
 <div class="comments">
     <% @post.comments.each do |comment| %>
-    <%= comment.user %><br>
+    <%= comment.user.username %><br>
     <%= comment.body %>
     <% end %>
 </div>

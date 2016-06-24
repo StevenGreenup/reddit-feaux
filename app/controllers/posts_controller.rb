@@ -2,6 +2,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    # @post.user_id = params[:user_id]
+
   end
 
   def show
@@ -12,9 +14,11 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+
+
   def create
     @post = Post.new
-    @post.user = params[:post][:user]
+    @post.user_id = params[:post][:user_id]
     @post.title = params[:post][:title]
     @post.body = params[:post][:body]
     if @post.save
