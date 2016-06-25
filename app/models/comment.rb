@@ -3,6 +3,11 @@ class Comment < ActiveRecord::Base
   validates :post_id, presence: true
   validates :user_id, presence: true
 
+  def scorevote
+    upvote - downvote
+  end
+
+
   belongs_to :post
   belongs_to :user
   # def artist

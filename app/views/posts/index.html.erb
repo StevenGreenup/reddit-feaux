@@ -4,7 +4,13 @@
 <div class="item">
 
   <% @posts.each do |post| %>
-  <br>
+  <br><br>
+  <%= link_to 'up', upvote_path(id: post.id), method: :post %>
+::
+  <%= post.scorevote %>
+::
+  <%= link_to 'down', downvote_path(id: post.id), method: :post %><br>
+
     <%= link_to post.title, post_path(id: post.id) %><br>
      Submitted <%= post.created_at %> by <%= post.user.username %>
     <br>

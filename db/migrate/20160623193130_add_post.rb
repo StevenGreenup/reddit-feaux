@@ -5,6 +5,8 @@ class AddPost < ActiveRecord::Migration
       t.text :title
       t.text :body
       t.timestamps
+      t.integer :upvote, default: 0
+      t.integer :downvote, default: 0
     end
   end
 end

@@ -1,16 +1,26 @@
-<%= link_to 'Comment', new_comment_path%>
+<%= link_to 'Comment', new_comment_path(post_id: @post.id)%><br><br>
 <div class="item">
 
+
+
     <%= @post.title %><br>
-    <%= @post.user.username %> <br>
+    <%= link_to @post.user.username, user_path(id: @post.user_id) %> <br>
     <%= @post.body %> <br>
 
 
 </div>
 <br>
 <div class="comments">
-    <% @post.comments.each do |comment| %>
-    <%= comment.user.username %><br>
-    <%= comment.body %>
+
+
+    <% @post.comments.each do |comment| %><br>
+    <%= link_to 'up', comment_upvote_path(id: comment.post_id), method: :post %>
+  ::
+    <%= comment.scorevote %>
+  ::
+    <%= link_to 'down', comment_downvote_path(id: comment.post_id), method: :post %><br>
+
+    <%= link_to comment.user.username, user_path(id: comment.user_id) %><br>
+    <%= comment.body %><br><br>
     <% end %>
 </div>

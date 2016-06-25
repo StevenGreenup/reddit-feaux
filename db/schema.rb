@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 20160623193256) do
     t.integer  "post_id"
     t.integer  "user_id"
     t.text     "body"
+    t.integer  "upvote",     default: 0
+    t.integer  "downvote",   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,10 +29,14 @@ ActiveRecord::Schema.define(version: 20160623193256) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "upvote",     default: 0
+    t.integer  "downvote",   default: 0
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
+    t.string  "username"
+    t.integer "upvote",   default: 0
+    t.integer "downvote", default: 0
   end
 
 end

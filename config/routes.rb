@@ -3,9 +3,14 @@ Rails.application.routes.draw do
 
   # get 'comments/show'=> '', as: :
   #
-  get 'comments/new'=> 'comments#new', as: :new_comment
+  get 'posts/:post_id/comments/new'=> 'comments#new', as: :new_comment
   #
-  post 'comments'=> 'comments#create'
+  post 'posts/:post_id/comments'=> 'comments#create', as: :comments
+
+  post 'posts/:id/comments/upvote' => 'comments#upvote', as: :comment_upvote
+
+  post 'posts/:id/comments/downvote' => 'comments#downvote', as: :comment_downvote
+
   #
   # get 'comments/edit'=> '', as: :
   #
@@ -19,6 +24,10 @@ Rails.application.routes.draw do
 
   get 'posts/:id'=> 'posts#show', as: :post
 
+  post 'posts/:id/upvote' => 'posts#upvote', as: :upvote
+
+  post 'posts/:id/downvote' => 'posts#downvote', as: :downvote
+
   post 'posts'=> 'posts#create'
 
   # get 'posts/edit'=> 'posts#edit', as: :
@@ -28,6 +37,7 @@ Rails.application.routes.draw do
   get 'users/new' => 'users#new', as: :new_user
 
   get 'users/:id' => 'users#show', as: :user
+
 
   post 'users'=> 'users#create'
 

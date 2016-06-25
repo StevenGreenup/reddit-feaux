@@ -3,6 +3,12 @@ class User < ActiveRecord::Base
 
   has_many :comments
   has_many :posts
+
+  def scorevote
+    upvote - downvote
+  end
+
+
   # def albums
   #   []
   # end

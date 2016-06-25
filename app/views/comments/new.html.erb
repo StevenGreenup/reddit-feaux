@@ -1,5 +1,4 @@
-<h1>Comments#new</h1>
-<p>Find me in app/views/comments/new.html.erb</p>
+<h1>Commenting on <%= @comment.post.title %></h1>
 
 <%= form_for @comment do |f|  %>
 <%= f.label :user %>
@@ -7,9 +6,6 @@
 <%= f.text_area :body %>
 
 <br>
-<%= f.label :post %>
-<%= f.collection_select :post_id, Post.all, :id, :title, {prompt: true}, class: "form-control" %>
-
 
 <%= f.submit %><br>
 

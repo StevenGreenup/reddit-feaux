@@ -5,6 +5,11 @@ class Post < ActiveRecord::Base
   has_many :comments
   belongs_to :user
 
+  def scorevote
+    upvote - downvote
+  end
+
+
   # def albums
   #   []
   # end
