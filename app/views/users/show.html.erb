@@ -1,5 +1,5 @@
 <div class="item">
-  <h1><%= @user.username %>'s Posts</h1>
+  <h3><%= @user.username %>'s Posts. Score: <%= @user.scorevote %> </h3>
   <% @user.posts.each do |post| %>
     <%= post.title %><br>
     <%= link_to post.user.username, user_path(id: post.user_id) %> <br>
@@ -8,10 +8,10 @@
 
 </div>
 <br>
-<h1> <%= @user.username %>'s comments on posts </h1>
+<h3> <%= @user.username %>'s comments on posts </h3>
 <div class="comments">
     <% @user.comments.each do |comment| %>
-    <%= link_to comment.post.title, post_path(id: :post_id) %><br>
+    <%= comment.post.title %><br>
     <%= link_to comment.user.username, user_path(id: comment.user_id) %><br>
     <%= comment.body %><br><br>
     <% end %>

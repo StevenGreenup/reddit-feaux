@@ -1,30 +1,54 @@
-<%= link_to 'Comment', new_comment_path(post_id: @post.id)%><br><br>
-<div class="item">
-  <%= link_to 'up', upvote_path(id: @post.id), method: :post %>
-::
-  <%= @post.scorevote %>
-::
-  <%= link_to 'down', downvote_path(id: @post.id), method: :post %><br>
+<div class="container">
+  <div class="col-sm-9">
+    <div class="col-sm-12">
+      <%= link_to 'Comment', new_comment_path(post_id: @post.id)%><br><br>
+      <div class="col-sm-1">
+        <%= link_to upvote_path(id: @post.id), method: :post do %> <%= image_tag ("up.png") %><% end %>
 
+        <%= @post.scorevote %>
 
-    <%= @post.title %><br>
-    <%= link_to @post.user.username, user_path(id: @post.user_id) %> <br>
-    <%= @post.body %> <br>
+        <%= link_to downvote_path(id: @post.id), method: :post do %><%= image_tag ("down.png") %><% end %>
 
+      </div>
+      <div class="col-sm-11">
+        <%= @post.title %><br>
+        <%= link_to @post.user.username, user_path(id: @post.user_id) %> <br>
+        <%= @post.body %> <br>
 
-</div>
-<br>
-<div class="comments">
+      </div>
 
+    </div>
+
+  </div>
+
+  <div class="col-sm-3">
+    <%= link_to new_user_path do%>
+      <%= image_tag ("signin.png") %>
+    <% end %>
+    <br>
+    <%= image_tag ("ad1.jpg") %>
+    <br>
+    <%= link_to new_post_path do%>
+      <%= image_tag ("newlink.png") %>
+    <% end %>
+    <br>
+
+    <%= image_tag ("gold.png") %>
+
+  </div>
+
+  <br>
+  <div class="comments">
 
     <% @post.comments.each do |comment| %><br>
-    <%= link_to 'up', comment_upvote_path(id: comment.id, user_id: comment.user_id), method: :post %>
-  ::
-    <%= comment.scorevote %>
-  ::
-    <%= link_to 'down', comment_downvote_path(id: comment.id, user_id: comment.user_id), method: :post %><br>
+      <%= link_to comment_upvote_path(id: comment.id, user_id: comment.user_id), method: :post do %><%= image_tag ("up.png") %><% end %>
 
-    <%= link_to comment.user.username, user_path(id: comment.user_id) %><br>
-    <%= comment.body %><br><br>
+      <%= comment.scorevote %>
+
+      <%= link_to comment_downvote_path(id: comment.id, user_id: comment.user_id), method: :post do %><%= image_tag ("down.png") %><% end %>
+
+      <%= link_to comment.user.username, user_path(id: comment.user_id) %><br>
+      <%= comment.body %><br><br>
     <% end %>
+  </div>
 </div>

@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   #
   post 'posts/:post_id/comments'=> 'comments#create', as: :comments
 
-  post 'posts/:id/comments/upvote' => 'comments#upvote', as: :comment_upvote
+  post 'posts/:id/:user_id/comments/upvote' => 'comments#upvote', as: :comment_upvote
 
-  post 'posts/:id/comments/downvote' => 'comments#downvote', as: :comment_downvote
+  post 'posts/:id/:user_id/comments/downvote' => 'comments#downvote', as: :comment_downvote
 
   #
   # get 'comments/edit'=> '', as: :
@@ -43,16 +43,7 @@ Rails.application.routes.draw do
 
   # root 'artists#index'
 
-# get 'artists' => 'artists#index', as: :artists
-# get 'artists/new' => 'artists#new', as: :new_artist
-# get 'artists/:id' => 'artists#show', as: :artist
-# post 'artists' => 'artists#create'
-#
-# get 'albums' => 'albums#index', as: :albums
-# get 'albums/new' => 'albums#new', as: :new_album
-# get 'albums/:id' => 'albums#show', as: :album
-# post 'albums' => 'albums#create'
-# post 'albums/:id/play' => 'albums#play', as: :play_album
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

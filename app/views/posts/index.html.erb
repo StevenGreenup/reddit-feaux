@@ -2,45 +2,46 @@
 <div class="container">
 
 
-    <div class="col-sm-9">
-        <% @posts.each do |post| %>
-        <div class="col-sm-12">
+  <div class="col-sm-9">
+    <% @posts.each do |post| %>
+      <div class="col-sm-12">
 
 
-          <div class="col-sm-1">
-            <%= link_to upvote_path(id: post.id), method: :post do %> <%= image_tag ("up.png") %><% end %>
+        <div class="col-sm-1">
+          <%= link_to upvote_path(id: post.id), method: :post do %> <%= image_tag ("up.png") %><% end %>
 
-            <%= post.scorevote %>
+          <%= post.scorevote %>
 
-            <%= link_to downvote_path(id: post.id), method: :post do %><%= image_tag ("down.png") %><% end %>
-          </div>
-
-
-          <div class="col-sm-11">
-            <%= link_to post.title, post_path(id: post.id) %><br>
-             Submitted <%= post.created_at %> by <%= post.user.username %>
-          </div>
+          <%= link_to downvote_path(id: post.id), method: :post do %><%= image_tag ("down.png") %><% end %>
         </div>
+
+
+        <div class="col-sm-11">
+          <%= link_to post.title, post_path(id: post.id) %><br>
+           Submitted <%= post.created_at %> by <%= link_to post.user.username, user_path(id: post.user_id) %>
+        </div>
+      </div>
+
 
     <% end %>
 
     </div>
 
 
-<div class="col-sm-3">
-  <%= link_to new_user_path do%>
-  <%= image_tag ("signin.png") %>
-  <% end %>
-  <br>
-  <%= image_tag ("ad1.jpg") %>
-  <br>
-  <%= link_to new_post_path do%>
-  <%= image_tag ("newlink.png") %>
-<% end %>
-  <br>
+  <div class="col-sm-3">
+    <%= link_to new_user_path do%>
+      <%= image_tag ("signin.png") %>
+    <% end %>
+        <br>
+    <%= image_tag ("ad1.jpg") %>
+    <br>
+    <%= link_to new_post_path do%>
+      <%= image_tag ("newlink.png") %>
+    <% end %>
+    <br>
 
-<%= image_tag ("gold.png") %>
+  <%= image_tag ("gold.png") %>
 
-</div>
+  </div>
 
 </div>
