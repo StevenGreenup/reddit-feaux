@@ -1,6 +1,10 @@
 <%= link_to 'Comment', new_comment_path(post_id: @post.id)%><br><br>
 <div class="item">
-
+  <%= link_to 'up', upvote_path(id: @post.id), method: :post %>
+::
+  <%= @post.scorevote %>
+::
+  <%= link_to 'down', downvote_path(id: @post.id), method: :post %><br>
 
 
     <%= @post.title %><br>

@@ -7,7 +7,39 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to 'Reddit', root_path %><br>
+
+  <div class="top">
+    <ul class="nav">
+      <li class="active">my subreddits</li>
+
+      <li class="active" role="presentation">Front</li>
+      <li role="presentation">All</li>
+      <li role="presentation">Random</li>
+    </ul>
+  </div>
+
+  <div class="Top-Header">
+
+<%= link_to root_path do %>
+  <%= image_tag ("reddit-logo.png") %>
+  <% end %>
+  <ul class="nav">
+    <li role="presentation" class="active"><a href="#">hot</a></li>
+    <li role="presentation"><a href="/">new</a></li>
+    <li role="presentation"><a href="/">rising</a></li>
+    <li role="presentation"><a href="/">controversal</a></li>
+    <li role="presentation"><a href="/">top</a></li>
+    <li role="presentation"><a href="/">gilded</a></li>
+    <li role="presentation"><a href="/">wiki</a></li>
+    <li role="presentation"><a href="/">promoted</a></li>
+
+<div class="signin">
+  <span class="user">Want to join? <%= link_to 'Log in or sign up', new_user_path %></a> in seconds.</span>
+
+</div>
+  </ul>
+
+</div><br>
 <%= yield %>
 
 </body>

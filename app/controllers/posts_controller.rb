@@ -4,11 +4,12 @@ class PostsController < ApplicationController
     # @posts = Post.all.order("(upvote-downvote) DESC")
 
     @posts = Post.all.sort_by {|p| p.scorevote }.reverse
-
+  
   end
 
   def show
     @post = Post.find_by id: params[:id]
+
   end
 
   def new
