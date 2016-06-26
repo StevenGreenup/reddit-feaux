@@ -3,11 +3,11 @@
     <div class="col-sm-12">
       <%= link_to 'Comment', new_comment_path(post_id: @post.id)%><br><br>
       <div class="col-sm-1">
-        <%= link_to upvote_path(id: @post.id), method: :post do %> <%= image_tag ("up.png") %><% end %>
+        <%= link_to upvote_path(id: @post.id, user_id: @post.user_id), method: :post do %> <%= image_tag ("up.png") %><% end %>
 
         <%= @post.scorevote %>
 
-        <%= link_to downvote_path(id: @post.id), method: :post do %><%= image_tag ("down.png") %><% end %>
+        <%= link_to downvote_path(id: @post.id, user_id: @post.user_id), method: :post do %><%= image_tag ("down.png") %><% end %>
 
       </div>
       <div class="col-sm-11">

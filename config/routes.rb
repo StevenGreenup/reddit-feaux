@@ -24,9 +24,9 @@ Rails.application.routes.draw do
 
   get 'posts/:id'=> 'posts#show', as: :post
 
-  post 'posts/:id/upvote' => 'posts#upvote', as: :upvote
+  post 'posts/:id/:user_id/upvote' => 'posts#upvote', as: :upvote
 
-  post 'posts/:id/downvote' => 'posts#downvote', as: :downvote
+  post 'posts/:id/:user_id/ownvote' => 'posts#downvote', as: :downvote
 
   post 'posts'=> 'posts#create'
 

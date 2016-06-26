@@ -38,7 +38,7 @@ class PostsController < ApplicationController
 
   def upvote
     @post = Post.find_by id: params[:id]
-    @user = User.find_by id: params[:id]
+    @user = User.find_by id: params[:user_id]
     @post.upvote += 1
     @user.upvote += 1
       if @post.save && @user.save
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
 
   def downvote
     @post = Post.find_by id: params[:id]
-    @user = User.find_by id: params[:id]
+    @user = User.find_by id: params[:user_id]
     @user.downvote += 1
     @post.downvote += 1
       if @post.save && @user.save
