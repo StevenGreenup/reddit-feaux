@@ -18,11 +18,11 @@
 
 
     <% @post.comments.each do |comment| %><br>
-    <%= link_to 'up', comment_upvote_path(id: comment.post_id), method: :post %>
+    <%= link_to 'up', comment_upvote_path(id: comment.id, user_id: comment.user_id), method: :post %>
   ::
     <%= comment.scorevote %>
   ::
-    <%= link_to 'down', comment_downvote_path(id: comment.post_id), method: :post %><br>
+    <%= link_to 'down', comment_downvote_path(id: comment.id, user_id: comment.user_id), method: :post %><br>
 
     <%= link_to comment.user.username, user_path(id: comment.user_id) %><br>
     <%= comment.body %><br><br>

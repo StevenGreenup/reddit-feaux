@@ -34,16 +34,20 @@ class CommentsController < ApplicationController
 
   def upvote
     @comment = Comment.find_by id: params[:id]
+    @user = User.find_by id: params[:id]
     @comment.upvote += 1
-      if @comment.save
+    @user.upvote += 1
+      if @comment.save && @user.save
         redirect_to post_path(id: @comment.post_id)
       end
   end
 
   def downvote
     @comment = Comment.find_by id: params[:id]
+    @user = User.find_by id: params[:id]
     @comment.downvote += 1
-      if @comment.save
+    @user.downvote += 1
+      if @comment.save && @user.save
         redirect_to post_path(id: @comment.post_id)
       end
   end

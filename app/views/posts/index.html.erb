@@ -2,29 +2,29 @@
 <div class="container">
 
 
-<div class="col-sm-9">
-    <% @posts.each do |post| %>
-    <div class="col-sm-12">
+    <div class="col-sm-9">
+        <% @posts.each do |post| %>
+        <div class="col-sm-12">
 
 
-      <div class="col-sm-1">
-        <%= link_to upvote_path(id: post.id), method: :post do %> <%= image_tag ("up.png") %><% end %>
+          <div class="col-sm-1">
+            <%= link_to upvote_path(id: post.id), method: :post do %> <%= image_tag ("up.png") %><% end %>
 
-        <%= post.scorevote %>
+            <%= post.scorevote %>
 
-        <%= link_to downvote_path(id: post.id), method: :post do %><%= image_tag ("down.png") %><% end %>
-      </div>
+            <%= link_to downvote_path(id: post.id), method: :post do %><%= image_tag ("down.png") %><% end %>
+          </div>
 
 
-      <div class="col-sm-11">
-        <%= link_to post.title, post_path(id: post.id) %><br>
-         Submitted <%= post.created_at %> by <%= post.user.username %>
-      </div>
+          <div class="col-sm-11">
+            <%= link_to post.title, post_path(id: post.id) %><br>
+             Submitted <%= post.created_at %> by <%= post.user.username %>
+          </div>
+        </div>
+
+    <% end %>
+
     </div>
-
-<% end %>
-
-</div>
 
 
 <div class="col-sm-3">
@@ -38,9 +38,6 @@
   <%= image_tag ("newlink.png") %>
 <% end %>
   <br>
-
-
-
 
 <%= image_tag ("gold.png") %>
 

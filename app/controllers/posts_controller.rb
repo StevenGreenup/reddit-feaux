@@ -4,12 +4,11 @@ class PostsController < ApplicationController
     # @posts = Post.all.order("(upvote-downvote) DESC")
 
     @posts = Post.all.sort_by {|p| p.scorevote }.reverse
-  
+
   end
 
   def show
     @post = Post.find_by id: params[:id]
-
   end
 
   def new
@@ -38,16 +37,20 @@ class PostsController < ApplicationController
 
   def upvote
     @post = Post.find_by id: params[:id]
+    @user = User.find_by id: params[:id]
     @post.upvote += 1
-      if @post.save
+    @user.upvote += 1
+      if @post.save && @user.save
         redirect_to posts_path
       end
   end
 
   def downvote
     @post = Post.find_by id: params[:id]
+    @user = User.find_by id: params[:id]
+    @user.downvote += 1
     @post.downvote += 1
-      if @post.save
+      if @post.save && @user.save
         redirect_to posts_path
       end
   end
