@@ -38,7 +38,6 @@ Rails.application.routes.draw do
 
   get 'users/:id' => 'users#show', as: :user
 
-
   post 'users'=> 'users#create'
 
   # root 'artists#index'

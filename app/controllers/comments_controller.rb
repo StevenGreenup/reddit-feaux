@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
 
   def upvote
     @comment = Comment.find_by id: params[:id]
-    @user = User.find_by id: params[:id]
+    @user = User.find_by id: params[:user_id]
     @comment.upvote += 1
     @user.upvote += 1
       if @comment.save && @user.save
@@ -44,7 +44,7 @@ class CommentsController < ApplicationController
 
   def downvote
     @comment = Comment.find_by id: params[:id]
-    @user = User.find_by id: params[:id]
+    @user = User.find_by id: params[:user_id]
     @comment.downvote += 1
     @user.downvote += 1
       if @comment.save && @user.save
